@@ -59,7 +59,7 @@ def init_model():
 
 t=0
 num_cl=4
-num_round=3
+num_round=10
 
 s = MLSocket()
 s.bind((SERVER_HOST, SERVER_PORT))
