@@ -11,7 +11,7 @@ PORT = 64345
 s1=socket.socket()
 s1.connect((HOST, PORT))
 
-filename="Key5.key"
+filename="EnKey.key"
 
 t1=time.time()
 #progress = tqdm.tqdm(range(filesize), f"Sending {filename}", unit="B", unit_scale=True, unit_divisor=1024)
