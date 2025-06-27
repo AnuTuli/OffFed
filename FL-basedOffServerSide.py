@@ -1,4 +1,4 @@
-#FL-based Decision-making to Offload
+#Server side code: FL-based Decision-making to Offload
 import numpy as np
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
 from sklearn.preprocessing import StandardScaler, LabelEncoder
