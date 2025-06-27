@@ -26,8 +26,8 @@ print_lock = threading.Lock()
 
 # Load global data
 global_data = pd.read_csv('offg.csv')
-X_global = global_data.iloc[:, 1:9].astype(np.float32).values
-y_global = global_data.iloc[:, 9]
+X_global = global_data.iloc[:, :-1].astype(np.float32).values
+y_global = global_data.iloc[:, -1]
 
 lb = LabelEncoder()
 y_global = lb.fit_transform(y_global).astype(np.int32)
