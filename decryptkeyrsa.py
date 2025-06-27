@@ -5,13 +5,17 @@ import pickle
 
 prikey=pickle.load(open('PRIKEY.pem','rb'))
 t1=time.time()
-filename="Key1.key"
-with open('key1.key', 'rb') as filekey:
-    key=filekey.read()
+
+num_cl=int(input('Enter number of clients:'))
+
+for i in range(num_cl):
+    with open('Enkey.key', 'rb') as filekey:
+        key=filekey.read()
         
-newk=rsa.decrypt(key, prikey)
-with open('Key1.key', 'wb') as file:
-    file.write(newk)
+    newk=rsa.decrypt(key, prikey)
+    filename="Key"+str(i+1)+".key"
+    with open(filename, 'wb') as file:
+        file.write(newk)
     
 t2=time.time()
 
