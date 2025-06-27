@@ -2,22 +2,22 @@ import tqdm
 import socket
 import time
 from cryptography.fernet import Fernet
-
+import rsa
 
 SERVER_HOST = "10.0.4.102"
 SERVER_PORT = 64345
 
 s1 = socket.socket()
 s1.bind((SERVER_HOST, SERVER_PORT))
-
 s1.listen(5)
 print("Waiting for the client to connect... ")
 
 x=0
-
 t=0
 
-for i in range(1):
+num_cl=int(input('Enter number of clients:'))
+
+for i in range(num_cl):
     cs, addr1=s1.accept()
     x=x+1
     filename = "Key"+str(x)+".key"
