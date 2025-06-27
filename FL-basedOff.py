@@ -17,6 +17,7 @@ from mlsocket import MLSocket
 import time
 import matplotlib.pyplot as plt
 import sys
+import pickle
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 16384
