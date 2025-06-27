@@ -102,7 +102,6 @@ def update_model():
             i=i+1
         average_weights = [np.mean([model.get_weights()[k] for model in local_weights], axis=0) for k in range(len(local_weights[0].get_weights()))]
         model.set_weights(average_weights)
-        model.fit(X_train, y_train, epochs=10, batch_size=200, verbose=0)
         tr1=time.time()
         y_pred = np.argmax(model.predict(X_test), axis=1)
         y_test_classes = np.argmax(y_test, axis=1)
@@ -127,6 +126,8 @@ def update_model():
             for conn in all_addr:
                 conn.send(model)
                 conn.close()
+            modelfile='finalmodel.sav'
+            pickle.dump(model4, open(modelfile, 'wb'))
             sys.exit("Model is updated finally")
     t2=time.time()
     print("Train time:",(t2-t1))
@@ -135,6 +136,8 @@ def update_model():
     for conn in all_addr:
         conn.send(model)
         conn.close()
+    modelfile='finalmodel.sav'
+    pickle.dump(model4, open(modelfile, 'wb'))
     sys.exit("Model is updated finally")
 
     
