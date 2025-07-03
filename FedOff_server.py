@@ -34,6 +34,10 @@ X_global = X_global.reshape((X_global.shape[0], 1, X_global.shape[1]))  # Reshap
 
 X_train, X_test, y_train, y_test = train_test_split(X_global, y_global, test_size=0.2, random_state=4)
 
+SERVER_HOST = "10.0.4.102"
+SERVER_PORT = 65432
+BUFFER_SIZE = 4096
+SEPARATOR = "<SEPARATOR>"
 
 local_weights=[]
 all_addr=[]
