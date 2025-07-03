@@ -11,9 +11,6 @@ from tensorflow.keras.layers import LSTM, Dense, GRU, Dropout
 from tensorflow.keras.utils import to_categorical
 import pandas as pd
 import pickle
-from cryptography.fernet import Fernet
-
-
     
 def recfile(n, j):
     SERVER_HOST = "10.0.4.102"
@@ -37,11 +34,3 @@ def recfile(n, j):
             f.write(bytes_read)
     client_socket.close()
     s1.close()
-    with open('Key'+str(n+1)+'.key', 'rb') as filekey:
-        key=filekey.read()
-    fernet=Fernet(key)
-    with open('CDe.csv', 'rb') as en_file:
-        en=en_file.read()
-    dec=fernet.decrypt(en)
-    with open("CD"+str(j+1)+".csv", 'wb') as dec_file:
-        dec_file.write(dec)
