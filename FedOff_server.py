@@ -39,6 +39,9 @@ SERVER_PORT = 65432
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
 
+s = MLSocket()
+s.bind((SERVER_HOST, SERVER_PORT))
+
 local_weights=[]
 all_addr=[]
 
@@ -51,7 +54,7 @@ def init_model():
 
 t=0
 num_cl=5
-num_round=3
+num_round=5
 
 
 def update_model():
